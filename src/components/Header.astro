@@ -1,0 +1,107 @@
+---
+import { NAV_LINKS } from '../data/site';
+---
+
+<header class="sticky top-0 z-50 border-b border-black/6 bg-white/92 backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-6 lg:px-8">
+    <a
+      href="/"
+      class="flex shrink-0 items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-mint"
+      aria-label="simplysichtbar Startseite"
+    >
+      <img
+        src="/images/logo_simplysichtbar.png"
+        alt="simplysichtbar"
+        width="160"
+        height="54"
+        class="h-9 w-auto sm:h-11"
+        loading="eager"
+        decoding="async"
+      />
+    </a>
+
+    <nav aria-label="Hauptnavigation" class="hidden items-center gap-7 md:flex">
+      {
+        NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-semibold text-grey transition-colors duration-200 hover:text-ink"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="/#kontakt"
+        class="inline-flex items-center justify-center rounded-full bg-mint px-5 py-2.5 text-sm font-bold text-ink shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-hover hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2"
+      >
+        Erstgespräch sichern
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-2.5 md:hidden">
+      <a
+        href="/#kontakt"
+        class="inline-flex items-center justify-center rounded-full bg-mint px-4 py-2 text-xs font-bold text-ink transition-colors hover:bg-mint-hover"
+      >
+        Erstgespräch sichern
+      </a>
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 text-ink transition-colors hover:bg-surface"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="7" x2="20" y2="7" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="17" x2="20" y2="17" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-black/6 bg-white md:hidden">
+    <nav aria-label="Mobile Navigation" class="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-4">
+      {
+        NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class="mobile-nav-link rounded-xl px-3 py-2.5 text-base font-semibold text-grey transition-colors hover:bg-mint-soft hover:text-ink"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="/#kontakt"
+        class="mobile-nav-link mt-2 inline-flex items-center justify-center rounded-full bg-mint px-5 py-3 text-center text-sm font-bold text-ink transition-colors hover:bg-mint-hover"
+      >
+        Erstgespräch sichern
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Menü öffnen' : 'Menü schließen');
+    });
+
+    menu.querySelectorAll('.mobile-nav-link').forEach((el) => {
+      el.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Menü öffnen');
+      });
+    });
+  }
+</script>

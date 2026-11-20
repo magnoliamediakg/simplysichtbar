@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mint: #7adba9;
+  --color-mint-hover: #62cc96;
+  --color-mint-dark: #226a48;
+  --color-mint-soft: #eefaf4;
+  --color-mint-border: #c5edd8;
+  --color-grey: #5b5b5b;
+  --color-ink: #212121;
+  --color-surface: #f8faf9;
+  --font-sans: 'Montserrat Variable', 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+}
+
+/* Signature simply sichtbar mint textmarker accent */
+.textmarker {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.textmarker::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 0.08em;
+  height: 0.34em;
+  background-color: rgba(122, 219, 169, 0.55);
+  border-radius: 3px;
+  z-index: -1;
+}
+
+/* Native <details> FAQ accordion polish */
+details.faq-item summary {
+  list-style: none;
+}
+
+details.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+details.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* Clean prose styling for legal pages */
+.legal-prose h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-top: 2rem;
+  margin-bottom: 0.625rem;
+}
+
+.legal-prose h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-prose p {
+  color: var(--color-grey);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.legal-prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-grey);
+}
+
+.legal-prose li {
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+
+.legal-prose a {
+  color: var(--color-mint-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-prose a:hover {
+  color: var(--color-ink);
+}

@@ -1,0 +1,41 @@
+# simplysichtbar
+
+> Webdesign, lokales SEO und KI-Sichtbarkeit (GEO) für regionale Betriebe und KMU in Niederösterreich und Österreich – zum Fixpreis, in 5 Werktagen und ohne teuren Wartungsvertrag.
+
+## Überblick
+
+**simplysichtbar** (ein Angebot der Magnolia Media KG, 3254 Bergland, Niederösterreich) erstellt moderne, statische und pfeilschnelle Websites speziell für kleine und mittlere Unternehmen (KMU), Handwerksbetriebe, Dienstleister und regionale Betriebe in Niederösterreich und ganz Österreich.
+
+## Angebot & Preise
+
+- **Komplett-Website zum Fixpreis:** **650 €** (einmalig, exkl. MwSt.)
+  - Individuelles, modernes Design für Smartphone & Desktop
+  - Bis zu 5 Unterseiten (z. B. Start, Leistungen, Über uns, Kontakt, Impressum/Datenschutz)
+  - Lokales SEO-Fundament (optimierte Texte, saubere Überschriften-Struktur, 99–100 Google-Speed)
+  - KI-Optimierung (GEO) mit strukturierten Schema.org-Daten (`LocalBusiness` & `FAQPage`) für ChatGPT, Google Gemini und Perplexity
+  - Kontaktformular sowie direkte Anruf- und WhatsApp-Buttons
+  - DSGVO-konforme Umsetzung ohne unnötige Cookie-Banner
+  - Fertigstellung in 5 Werktagen nach Materialeingang
+  - 100 % Eigentum an Design, Texten und Quellcode
+- **High-Speed-Hosting & Technik:** **7,50 € / Monat** (monatlich kündbar, kein Wartungsvertrag)
+  - Schnelle Server in Europa inkl. SSL-Zertifikat
+  - Anbindung der eigenen Wunsch-Domain
+  - 99,9 % Erreichbarkeit ohne Plugin-Updates oder Datenbank-Sicherheitslücken
+- **Spätere Änderungen:** Unkompliziert auf Zuruf per E-Mail oder WhatsApp ab 25 € nach Aufwand – kein laufendes Abo.
+
+## Kernleistungen
+
+- **Webdesign für KMU:** Schlanke, statische Web-Technologie mit Ladezeiten unter 1 Sekunde.
+- **Lokales SEO:** Optimierung für regionale Suchanfragen bei Google.
+- **GEO (Generative Engine Optimization):** Maschinenlesbare Struktur, klare Antworten und Schema.org-Markup, damit KI-Systeme den Betrieb zuverlässig empfehlen können.
+
+## Zielgruppe
+
+Regionale Betriebe, Handwerker, Dienstleister und KMU in Niederösterreich und Österreich, die einen professionellen Online-Auftritt ohne Agentur-Chaos und ohne teure Wartungsverträge suchen.
+
+## Kontakt
+
+- Website: https://simplysichtbar.at
+- E-Mail: hallo@simplysichtbar.at
+- Telefon: +43 677/639 81 658
+- Standort: Kendl 12, 3254 Bergland, Niederösterreich, Österreich

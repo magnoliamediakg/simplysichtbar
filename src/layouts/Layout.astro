@@ -1,0 +1,132 @@
+---
+import '@fontsource-variable/montserrat';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { FAQ_ITEMS, SITE } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  includeFaqSchema?: boolean;
+}
+
+const {
+  title,
+  description,
+  noindex = false,
+  includeFaqSchema = true,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE.url);
+
+const professionalServiceSchema = {
+  '@type': 'ProfessionalService',
+  '@id': `${SITE.url}/#organization`,
+  name: SITE.name,
+  legalName: SITE.legalName,
+  url: SITE.url,
+  logo: `${SITE.url}/images/logo_simplysichtbar.png`,
+  image: `${SITE.url}/images/logo_simplysichtbar.png`,
+  description:
+    'Webdesign, lokales SEO und KI-Sichtbarkeit (GEO) für regionale Betriebe in Niederösterreich – Komplett-Website zum Fixpreis von 650 € in 5 Werktagen, danach nur 7,50 €/Monat High-Speed-Hosting ohne Wartungsvertrag.',
+  telephone: SITE.phoneDisplay,
+  email: SITE.email,
+  priceRange: '€€',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE.address.street,
+    postalCode: SITE.address.postalCode,
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.region,
+    addressCountry: SITE.address.country,
+  },
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'Niederösterreich',
+  },
+  makesOffer: [
+    {
+      '@type': 'Offer',
+      name: 'Komplett-Website zum Fixpreis',
+      description:
+        'Individuelles, modernes Webdesign (bis zu 5 Unterseiten), lokales SEO-Fundament, KI-Optimierung (GEO) mit Schema.org-Daten, Kontaktformular, DSGVO-konforme Umsetzung und Fertigstellung in 5 Werktagen.',
+      price: '650.00',
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      url: `${SITE.url}/#preise`,
+    },
+    {
+      '@type': 'Offer',
+      name: 'High-Speed-Hosting & Technik',
+      description:
+        'Schnelle Server in Europa inkl. SSL-Sicherheitszertifikat, Domain-Anbindung und 99,9 % Erreichbarkeit. Monatlich kündbar, kein Wartungsvertrag.',
+      price: '7.50',
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: '7.50',
+        priceCurrency: 'EUR',
+        unitText: 'MONTH',
+      },
+      availability: 'https://schema.org/InStock',
+      url: `${SITE.url}/#preise`,
+    },
+  ],
+};
+
+const faqPageSchema = {
+  '@type': 'FAQPage',
+  '@id': `${SITE.url}/#faq`,
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': includeFaqSchema
+    ? [professionalServiceSchema, faqPageSchema]
+    : [professionalServiceSchema],
+};
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL.toString()} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_AT" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL.toString()} />
+    <meta property="og:image" content={`${SITE.url}/images/logo_simplysichtbar.png`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-ink">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

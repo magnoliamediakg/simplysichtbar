@@ -38,22 +38,55 @@ const painPoints = [
 
 const steps = [
   {
-    number: '01',
+    number: '1',
     title: 'Kurzes Kennenlernen (15 Min.)',
     description:
       'Wir besprechen telefonisch oder vor Ort, was dein Betrieb macht und welche Kunden du erreichen willst.',
   },
   {
-    number: '02',
+    number: '2',
     title: 'Umsetzung in 5 Tagen',
     description:
       'Du schickst uns deine Fotos und Stichpunkte (oder wir helfen dir beim Texten). Wir übernehmen Design, SEO/GEO-Texte und die komplette Programmierung.',
   },
   {
-    number: '03',
+    number: '3',
     title: 'Feinschliff & Livegang',
     description:
       'Du prüfst den Entwurf, wir setzen deine Änderungswünsche um und schalten deine neue Seite unter deiner Domain live.',
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      '"Mal abgesehen vom tollen Preis-Leistungs-Verhältnis, sind die Damen absolut kreativ und haben auch ausgefallene Ideen auf Lager. Meine Wünsche wurden stets erfüllt bzw. bei weitem übertroffen. Absolut empfehlenswert!!!"',
+    author: 'Elisabeth N.',
+  },
+  {
+    quote:
+      '"Wunderbare und unkomplizierte Zusammenarbeit – kreativ, zuverlässig und ein top Preis-Leistungsverhältnis!"',
+    author: 'Jürgen U.',
+  },
+  {
+    quote:
+      '"Helfen sehr schnell und kompetent. Gehen auf Wünsche ein und setzen diese bestmöglich um. Preis/Leistung absolut top! Kann ich empfehlen."',
+    author: 'Petra O.',
+  },
+];
+
+const hostingPoints = [
+  {
+    title: 'Schnelle Server in Europa & SSL:',
+    text: 'Höchste Datensicherheit, verschlüsselte Verbindung und pfeilschnelle Ladezeiten.',
+  },
+  {
+    title: 'Anbindung deiner Wunsch-Domain:',
+    text: 'Wir verbinden deine bestehende oder neue Domain komplett schlüsselfertig.',
+  },
+  {
+    title: '99,9 % Erreichbarkeit ohne Update-Risiko:',
+    text: 'Statischer Code ohne Plugin-Chaos – zuverlässig online ohne laufenden Wartungsvertrag.',
   },
 ];
 ---
@@ -63,89 +96,120 @@ const steps = [
   description="Webdesign, Google- (SEO) & KI-Sichtbarkeit (GEO) für regionale Betriebe in Niederösterreich. Einmalig 650 € Fixpreis, danach nur 7,50 €/Monat Hosting – ohne Wartungsvertrag."
   includeFaqSchema={true}
 >
-  <!-- HERO -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-mint-soft/70 via-white to-white pt-14 pb-16 sm:pt-20 sm:pb-24">
-    <div class="mx-auto max-w-5xl px-5 text-center sm:px-6 lg:px-8">
-      <p class="mb-5 text-xs font-bold tracking-[0.14em] text-mint-dark uppercase sm:text-sm">
-        Webdesign, Google- &amp; KI-Sichtbarkeit für regionale Betriebe
-      </p>
+  <!-- HERO (Original 2-spaltiger Look auf #f7f7f7 mit Smartphone-Mockup & Badge) -->
+  <section class="overflow-hidden bg-surface py-12 sm:py-16 lg:py-20">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-8">
+      <!-- Linke Spalte -->
+      <div class="lg:col-span-7">
+        <p class="mb-3 text-xs font-bold tracking-[0.12em] text-mint-dark uppercase sm:text-sm">
+          Webdesign, Google- &amp; KI-Sichtbarkeit für regionale Betriebe
+        </p>
 
-      <h1 class="mx-auto max-w-4xl text-3xl font-extrabold tracking-tight text-ink sm:text-5xl sm:leading-[1.12] lg:text-[3.35rem]">
-        Deine neue Website <span class="textmarker">in 5 Tagen.</span> Gefunden bei Google &amp; ChatGPT – und ohne teuren Wartungsvertrag.
-      </h1>
+        <h1 class="text-3xl font-extrabold leading-[1.18] tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
+          Deine neue Website <span class="textmarker">in 5 Tagen.</span> Gefunden bei{' '}
+          <span class="textmarker">Google &amp; ChatGPT</span> – und ohne teuren Wartungsvertrag.
+        </h1>
 
-      <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-grey sm:text-lg">
-        Einmalig <strong class="font-bold text-ink">650 €</strong> für einen modernen, pfeilschnellen Auftritt, der dir
-        neue Kunden aus deiner Region bringt. Danach nur <strong class="font-bold text-ink">7,50 €/Monat</strong> für
-        High-Speed-Hosting. Keine Plugin-Updates, keine Abo-Fallen.
-      </p>
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-grey sm:text-lg">
+          Einmalig <strong class="font-bold text-ink">650 €</strong> für einen modernen, pfeilschnellen Auftritt, der dir
+          neue Kunden aus deiner Region bringt. Danach nur <strong class="font-bold text-ink">7,50 €/Monat</strong> für
+          High-Speed-Hosting. Keine Plugin-Updates, keine Abo-Fallen.
+        </p>
 
-      <div class="mt-9 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
-        <a
-          href="#kontakt"
-          class="inline-flex w-full items-center justify-center rounded-full bg-mint px-7 py-3.5 text-sm font-bold text-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-hover hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2 sm:w-auto sm:text-base"
+        <!-- 2x2 Trust-Bar (Original Checklisten-Stil) -->
+        <ul
+          aria-label="Vorteile auf einen Blick"
+          class="mt-7 grid max-w-xl grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2"
         >
-          Kostenloses Erstgespräch sichern
-        </a>
-        <a
-          href="#preise"
-          class="inline-flex w-full items-center justify-center rounded-full border-2 border-ink/15 bg-white px-7 py-3.5 text-sm font-bold text-ink transition-all duration-200 hover:-translate-y-0.5 hover:border-mint hover:bg-mint-soft/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2 sm:w-auto sm:text-base"
-        >
-          Leistungen &amp; Preise ansehen
-        </a>
+          {
+            trustItems.map((item) => (
+              <li class="flex items-start gap-2.5 text-sm font-medium text-grey">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-mint text-[11px] font-bold text-mint-dark"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <!-- CTA Buttons (Original Mint Pill mit weißer Schrift + Weiße Outline Pill) -->
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <a
+            href="#kontakt"
+            class="inline-flex items-center justify-center rounded-full bg-mint px-7 py-3.5 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-hover hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2 sm:text-base"
+          >
+            Kostenloses Erstgespräch sichern
+          </a>
+          <a
+            href="#preise"
+            class="inline-flex items-center justify-center rounded-full border border-ink/70 bg-white px-7 py-3.5 text-sm font-semibold text-ink transition-all duration-200 hover:-translate-y-0.5 hover:border-mint hover:text-mint-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2 sm:text-base"
+          >
+            Leistungen &amp; Preise ansehen
+          </a>
+        </div>
       </div>
 
-      <!-- Trust Bar -->
-      <ul
-        aria-label="Vorteile auf einen Blick"
-        class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-3 border-t border-black/8 pt-8 text-left sm:grid-cols-2 lg:grid-cols-4"
-      >
-        {
-          trustItems.map((item) => (
-            <li class="flex items-start gap-2.5 rounded-xl bg-surface/80 px-3.5 py-2.5 text-sm font-semibold text-ink">
-              <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/30 text-xs font-bold text-mint-dark" aria-hidden="true">
-                ✓
-              </span>
-              <span>{item}</span>
-            </li>
-          ))
-        }
-      </ul>
+      <!-- Rechte Spalte: Smartphone Mockup + "In 5 Tagen online" Siegel -->
+      <div class="relative mx-auto flex max-w-xs justify-center sm:max-w-sm lg:col-span-5 lg:max-w-none">
+        <div class="relative">
+          <img
+            src="/images/mockup-getraenke-wieland.webp"
+            alt="Beispiel einer mobilen Website von simplysichtbar – Getränke Wieland"
+            width="420"
+            height="560"
+            class="w-64 drop-shadow-xl sm:w-72 lg:w-80"
+            loading="eager"
+            decoding="async"
+          />
+          <div
+            class="absolute -top-2 -right-3 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-mint text-center text-white shadow-md sm:h-28 sm:w-28"
+            style="box-shadow: 0 8px 24px rgba(122, 219, 169, 0.45);"
+          >
+            <span class="text-xs font-extrabold leading-tight sm:text-sm">In 5<br />Tagen<br />online</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- SEKTION 2: PAIN POINTS -->
-  <section id="probleme" class="bg-surface py-16 sm:py-24">
+  <!-- SEKTION 2: DIE PAIN POINTS (Weißer Hintergrund, 3 weiße Schatten-Karten + 2 Mockups darunter) -->
+  <section id="probleme" class="bg-white py-16 sm:py-22">
     <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-4xl">
+        <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
           Warum viele lokale Websites heute kaum noch Kunden bringen
         </h2>
-        <p class="mt-4 text-base leading-relaxed text-grey sm:text-lg">
+        <p class="mt-3 text-sm leading-relaxed text-grey sm:text-base">
           Eine hübsche digitale Visitenkarte reicht heute nicht mehr. Wenn deine Seite technisch veraltet ist, verlierst
           du jeden Tag Anfragen an die Konkurrenz:
         </p>
       </div>
 
-      <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {
-          painPoints.map((card, index) => (
-            <article class="flex flex-col rounded-2xl border border-black/8 bg-white p-7 shadow-xs transition-shadow duration-200 hover:shadow-md">
-              <div class="mb-4 flex items-center justify-between gap-2">
-                <span class="text-xs font-bold tracking-wider text-mint-dark uppercase">{card.tag}</span>
-                <span class="text-xs font-bold text-grey/50">0{index + 1}</span>
+          painPoints.map((card) => (
+            <article class="flex flex-col rounded-xl border border-black/5 bg-white p-7 text-center shadow-[0_6px_28px_rgba(0,0,0,0.06)] transition-shadow duration-200 hover:shadow-[0_10px_32px_rgba(0,0,0,0.09)]">
+              <div class="mx-auto mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-mint/70 text-mint-dark" aria-hidden="true">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
               </div>
 
-              <h3 class="text-xl font-bold leading-snug text-ink">{card.title}</h3>
+              <p class="text-[11px] font-bold tracking-wider text-mint-dark uppercase">{card.tag}</p>
+              <h3 class="mt-1.5 text-lg font-bold leading-snug text-ink">{card.title}</h3>
 
-              <div class="mt-5 space-y-4 text-sm leading-relaxed">
-                <div class="rounded-xl bg-neutral-50 p-4">
-                  <p class="mb-1 text-xs font-bold tracking-wide text-grey uppercase">Das Problem</p>
+              <div class="mt-5 space-y-3.5 text-left text-sm leading-relaxed">
+                <div class="rounded-lg bg-surface p-3.5">
+                  <p class="mb-1 text-[11px] font-bold tracking-wide text-grey uppercase">Das Problem</p>
                   <p class="text-grey">{card.problem}</p>
                 </div>
 
-                <div class="rounded-xl bg-mint-soft/80 p-4">
-                  <p class="mb-1 text-xs font-bold tracking-wide text-mint-dark uppercase">Unsere Lösung</p>
+                <div class="rounded-lg bg-mint-soft p-3.5">
+                  <p class="mb-1 text-[11px] font-bold tracking-wide text-mint-dark uppercase">Unsere Lösung</p>
                   <p class="font-medium text-ink">{card.solution}</p>
                 </div>
               </div>
@@ -153,149 +217,161 @@ const steps = [
           ))
         }
       </div>
+
+      <!-- Beide Referenz-Mockups zentriert darunter (wie im Original) -->
+      <div class="mt-14 flex flex-wrap items-center justify-center gap-8 sm:gap-14">
+        <img
+          src="/images/mockup-getraenke-wieland.webp"
+          alt="Referenz-Website Getränke Wieland auf dem Smartphone"
+          width="240"
+          height="320"
+          class="w-44 drop-shadow-lg sm:w-52"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/images/mockup-physio-gross-klein.webp"
+          alt="Referenz-Website Physio für Groß und Klein auf dem Smartphone"
+          width="240"
+          height="320"
+          class="w-44 drop-shadow-lg sm:w-52"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     </div>
   </section>
 
-  <!-- SEKTION 3: PREISE & LEISTUNGEN -->
-  <section id="preise" class="bg-white py-16 sm:py-24">
+  <!-- SEKTION 3: PREISE & LEISTUNGEN (Original #f7f7f7 Fixpreis-Layout: weiße Karte mit Mint-Header links, gestapelte Mint-Balken rechts) -->
+  <section id="preise" class="bg-surface py-16 sm:py-22">
     <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-4xl">
-          Ein Preis. <span class="textmarker">Alles drin.</span>
-        </h2>
-        <p class="mt-4 text-base leading-relaxed text-grey sm:text-lg">
+        <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">Ein Preis. Alles drin.</h2>
+        <p class="mt-3 text-sm leading-relaxed text-grey sm:text-base">
           Transparente Konditionen ohne Kleingedrucktes und ohne langfristige Bindung.
         </p>
       </div>
 
-      <div class="mt-12 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12">
-        <!-- Preiskarte 1 (Hauptangebot – hervorgehoben) -->
-        <article class="relative flex flex-col justify-between rounded-3xl border-2 border-mint bg-white p-8 shadow-lg sm:p-10 lg:col-span-7">
-          <div>
-            <div class="flex flex-wrap items-center justify-between gap-3">
-              <h3 class="text-2xl font-extrabold text-ink">Komplett-Website</h3>
-              <span class="rounded-full bg-mint-soft px-3.5 py-1 text-xs font-bold text-mint-dark">
-                Hauptangebot · Fixpreis
-              </span>
+      <div class="mt-12 grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
+        <!-- Preiskarte 1 (Links – Original weiße Karte mit Mint-Header-Balken) -->
+        <article class="overflow-hidden rounded-xl bg-white shadow-[0_8px_32px_rgba(0,0,0,0.08)] lg:col-span-6">
+          <div class="bg-mint px-6 py-5 text-center">
+            <h3 class="text-xl font-bold text-ink">Komplett-Website</h3>
+            <p class="mt-1 text-xs font-medium text-ink/80">
+              simply sichtbar · Fertigstellung in 5 Werktagen
+            </p>
+          </div>
+
+          <div class="px-6 py-8 sm:px-8">
+            <div class="text-center">
+              <p class="text-5xl font-bold tracking-tight text-ink">
+                <span class="align-top text-2xl font-semibold">€</span> 650
+              </p>
+              <p class="mt-1 text-xs text-grey">einmalig (exkl. gesetzl. MwSt.)</p>
             </div>
 
-            <div class="mt-6 flex items-baseline gap-2.5 border-b border-black/8 pb-6">
-              <span class="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">650 €</span>
-              <span class="text-sm font-semibold text-grey">einmalig (exkl. MwSt.)</span>
-            </div>
-
-            <ul class="mt-7 space-y-3.5 text-sm leading-relaxed text-grey sm:text-base">
-              <li class="flex items-start gap-3">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/35 text-xs font-bold text-mint-dark" aria-hidden="true">✓</span>
+            <ul class="mt-7 divide-y divide-black/6 border-t border-b border-black/6 text-sm text-grey">
+              <li class="flex items-start gap-3 py-3.5">
+                <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-mint text-[11px] font-bold text-mint-dark" aria-hidden="true">✓</span>
                 <span>Individuelles, modernes Design (optimiert für Smartphone &amp; Desktop)</span>
               </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/35 text-xs font-bold text-mint-dark" aria-hidden="true">✓</span>
+              <li class="flex items-start gap-3 py-3.5">
+                <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-mint text-[11px] font-bold text-mint-dark" aria-hidden="true">✓</span>
                 <span>Bis zu 5 Unterseiten (z. B. Start, Leistungen, Über uns, Kontakt, Impressum/Datenschutz)</span>
               </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/35 text-xs font-bold text-mint-dark" aria-hidden="true">✓</span>
+              <li class="flex items-start gap-3 py-3.5">
+                <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-mint text-[11px] font-bold text-mint-dark" aria-hidden="true">✓</span>
                 <span>
-                  <strong class="font-bold text-ink">Lokales SEO-Fundament:</strong> Optimierte Texte, klare
+                  <strong class="font-semibold text-ink">Lokales SEO-Fundament:</strong> Optimierte Texte, klare
                   Überschriften-Struktur &amp; 99+ Google-Speed
                 </span>
               </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/35 text-xs font-bold text-mint-dark" aria-hidden="true">✓</span>
+              <li class="flex items-start gap-3 py-3.5">
+                <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-mint text-[11px] font-bold text-mint-dark" aria-hidden="true">✓</span>
                 <span>
-                  <strong class="font-bold text-ink">KI-Optimierung (GEO):</strong> Maschinenlesbare Schema.org-Daten
-                  (<code class="rounded bg-surface px-1.5 py-0.5 text-xs font-semibold text-ink">LocalBusiness</code> &amp;{' '}
-                  <code class="rounded bg-surface px-1.5 py-0.5 text-xs font-semibold text-ink">FAQPage</code>) für ChatGPT
+                  <strong class="font-semibold text-ink">KI-Optimierung (GEO):</strong> Maschinenlesbare Schema.org-Daten
+                  (<code class="rounded bg-surface px-1 py-0.5 text-xs font-semibold text-ink">LocalBusiness</code> &amp;{' '}
+                  <code class="rounded bg-surface px-1 py-0.5 text-xs font-semibold text-ink">FAQPage</code>) für ChatGPT
                   &amp; Co.
                 </span>
               </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/35 text-xs font-bold text-mint-dark" aria-hidden="true">✓</span>
+              <li class="flex items-start gap-3 py-3.5">
+                <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-mint text-[11px] font-bold text-mint-dark" aria-hidden="true">✓</span>
                 <span>Kontaktformular &amp; direkte Anruf-/WhatsApp-Buttons</span>
               </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/35 text-xs font-bold text-mint-dark" aria-hidden="true">✓</span>
+              <li class="flex items-start gap-3 py-3.5">
+                <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-mint text-[11px] font-bold text-mint-dark" aria-hidden="true">✓</span>
                 <span>DSGVO-konforme Umsetzung ohne nervige Cookie-Banner (wo möglich)</span>
               </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/35 text-xs font-bold text-mint-dark" aria-hidden="true">✓</span>
+              <li class="flex items-start gap-3 py-3.5">
+                <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-mint text-[11px] font-bold text-mint-dark" aria-hidden="true">✓</span>
                 <span>Fertigstellung in 5 Werktagen nach Materialeingang</span>
               </li>
             </ul>
-          </div>
 
-          <div class="mt-8 pt-2">
-            <a
-              href="#kontakt"
-              class="inline-flex w-full items-center justify-center rounded-full bg-mint px-7 py-4 text-base font-bold text-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-hover hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2"
-            >
-              Jetzt Website anfragen
-            </a>
+            <div class="mt-7 text-center">
+              <a
+                href="#kontakt"
+                class="inline-flex items-center justify-center rounded-full bg-mint px-8 py-3.5 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-hover hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2 sm:text-base"
+              >
+                Jetzt Website anfragen
+              </a>
+            </div>
           </div>
         </article>
 
-        <!-- Preiskarte 2 (Laufende Kosten) -->
-        <article class="flex flex-col justify-between rounded-3xl border border-black/10 bg-surface p-8 sm:p-10 lg:col-span-5">
-          <div>
-            <p class="text-xs font-bold tracking-wider text-grey uppercase">Laufende Kosten</p>
-            <h3 class="mt-2 text-2xl font-extrabold text-ink">High-Speed-Hosting &amp; Technik</h3>
+        <!-- Preiskarte 2 (Rechts – Original gestapelte Mint-Balken + Hinweis-Box) -->
+        <div class="lg:col-span-6">
+          <h3 class="text-xl font-bold text-ink">High-Speed-Hosting &amp; Technik</h3>
+          <p class="mt-2 text-2xl font-extrabold text-ink">
+            7,50 € / Monat
+          </p>
+          <p class="mt-1 text-sm font-medium text-grey">
+            monatlich kündbar · Kein Wartungsvertrag
+          </p>
 
-            <div class="mt-6 border-b border-black/8 pb-6">
-              <div class="flex items-baseline gap-1.5">
-                <span class="text-4xl font-extrabold tracking-tight text-ink">7,50 €</span>
-                <span class="text-base font-semibold text-grey">/ Monat</span>
-              </div>
-              <p class="mt-1.5 text-xs font-semibold text-mint-dark">
-                monatlich kündbar · Kein Wartungsvertrag
-              </p>
-            </div>
+          <!-- Original gestapelte Mint-Balken -->
+          <ul class="mt-6 space-y-3">
+            {
+              hostingPoints.map((point) => (
+                <li class="rounded-lg bg-mint px-5 py-4 text-sm leading-relaxed text-white shadow-xs">
+                  <strong class="font-bold">{point.title}</strong> {point.text}
+                </li>
+              ))
+            }
+          </ul>
 
-            <ul class="mt-7 space-y-3.5 text-sm leading-relaxed text-grey sm:text-base">
-              <li class="flex items-start gap-3">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/35 text-xs font-bold text-mint-dark" aria-hidden="true">✓</span>
-                <span>Schnelle Server in Europa &amp; SSL-Sicherheitszertifikat</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/35 text-xs font-bold text-mint-dark" aria-hidden="true">✓</span>
-                <span>Anbindung deiner Wunsch-Domain</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/35 text-xs font-bold text-mint-dark" aria-hidden="true">✓</span>
-                <span>99,9 % Erreichbarkeit ohne Update-Risiko</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="mt-8 rounded-2xl border border-mint-border bg-white p-5 text-sm leading-relaxed text-grey">
+          <!-- Hinweis-Box -->
+          <div class="mt-5 rounded-xl border border-black/8 bg-white p-5 text-sm leading-relaxed text-grey shadow-xs">
             <p>
               <strong class="font-bold text-ink">Spätere Änderungen?</strong> Texte oder Fotos tauschen wir jederzeit
               unkompliziert auf Zuruf ab 25 € nach Aufwand – ganz ohne laufendes Abo.
             </p>
           </div>
-        </article>
+          <p class="mt-3 text-xs text-grey">*Alle Preise exkl. gesetzl. MwSt.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SEKTION 4: ABLAUF IN 3 SCHRITTEN -->
-  <section id="ablauf" class="bg-surface py-16 sm:py-24">
+  <!-- SEKTION 4: ABLAUF IN 3 SCHRITTEN (Weißer Hintergrund, passende weiße Karten) -->
+  <section id="ablauf" class="bg-white py-16 sm:py-22">
     <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-xs font-bold tracking-[0.14em] text-mint-dark uppercase">So einfach geht’s</p>
-        <h2 class="mt-2.5 text-2xl font-extrabold tracking-tight text-ink sm:text-4xl">
+        <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
           In 5 Tagen von der Idee zur fertigen Website
         </h2>
       </div>
 
-      <ol class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <ol class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
         {
           steps.map((step) => (
-            <li class="relative rounded-2xl border border-black/8 bg-white p-7 shadow-xs">
-              <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-mint/25 text-lg font-extrabold text-mint-dark">
+            <li class="rounded-xl border border-black/5 bg-white p-7 text-center shadow-[0_6px_28px_rgba(0,0,0,0.06)]">
+              <div class="mx-auto mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-mint text-base font-extrabold text-white">
                 {step.number}
               </div>
               <h3 class="text-lg font-bold text-ink">{step.title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-grey sm:text-base">{step.description}</p>
+              <p class="mt-3 text-sm leading-relaxed text-grey">{step.description}</p>
             </li>
           ))
         }
@@ -303,109 +379,58 @@ const steps = [
     </div>
   </section>
 
-  <!-- SEKTION 5: FAQ -->
-  <section id="faq" class="bg-white py-16 sm:py-24">
-    <div class="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <p class="text-xs font-bold tracking-[0.14em] text-mint-dark uppercase">Häufige Fragen</p>
-        <h2 class="mt-2.5 text-2xl font-extrabold tracking-tight text-ink sm:text-4xl">FAQ</h2>
-      </div>
+  <!-- KUNDENSTIMMEN (Original 3 weiße Karten mit 5 goldenen Sternen) -->
+  <section class="bg-surface py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <h2 class="text-center text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+        Schnell, unkompliziert, auf den Punkt.
+      </h2>
 
-      <div class="mt-10 divide-y divide-black/10 rounded-2xl border border-black/10 bg-white">
+      <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
         {
-          FAQ_ITEMS.map((item, idx) => (
-            <details class="faq-item group" open={idx === 0}>
-              <summary class="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left text-base font-bold text-ink transition-colors hover:text-mint-dark sm:text-lg">
-                <span>{item.question}</span>
-                <span
-                  class="faq-chevron inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface text-grey transition-transform duration-200 group-hover:bg-mint-soft group-hover:text-mint-dark"
-                  aria-hidden="true"
-                >
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </span>
-              </summary>
-              <div class="px-6 pb-6 text-sm leading-relaxed text-grey sm:text-base">
-                <p>{item.answer}</p>
+          testimonials.map((t) => (
+            <figure class="flex flex-col justify-between rounded-xl border border-black/5 bg-white p-6 shadow-[0_6px_24px_rgba(0,0,0,0.05)]">
+              <div>
+                <div class="mb-3 text-lg tracking-wide text-amber-400" aria-label="5 von 5 Sternen">
+                  ★★★★★
+                </div>
+                <blockquote class="text-sm leading-relaxed text-grey">{t.quote}</blockquote>
               </div>
-            </details>
+              <figcaption class="mt-4 text-sm font-bold text-ink">{t.author}</figcaption>
+            </figure>
           ))
         }
       </div>
     </div>
   </section>
 
-  <!-- SEKTION 6: KONTAKTFORMULAR -->
-  <section id="kontakt" class="bg-surface py-16 sm:py-24">
-    <div class="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-10 rounded-3xl border border-black/8 bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-12 lg:p-12">
-        <div class="flex flex-col justify-between lg:col-span-5">
+  <!-- SEKTION 6: KONTAKTFORMULAR IM ORIGINAL VOLLFLÄCHIGEN MINT-BANNER -->
+  <section id="kontakt" class="bg-mint py-16 sm:py-22">
+    <div class="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
+      <div class="text-center text-white">
+        <h2 class="text-2xl font-extrabold tracking-tight sm:text-3xl">
+          Bereit für mehr Sichtbarkeit?
+        </h2>
+        <p class="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/95 sm:text-base">
+          Schreib uns kurz dein Anliegen. Wir melden uns innerhalb von 24 Stunden für ein unverbindliches
+          15-Minuten-Gespräch.
+        </p>
+      </div>
+
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        class="mx-auto mt-9 max-w-2xl space-y-4 rounded-2xl bg-white p-6 shadow-lg sm:p-8"
+      >
+        <!-- Web3Forms Access Key hier eintragen (https://web3forms.com) -->
+        <input type="hidden" name="access_key" value="DEIN_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="Neue Website-Anfrage über simplysichtbar.at" />
+        <input type="hidden" name="from_name" value="simplysichtbar.at Kontaktformular" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off" />
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
-            <p class="text-xs font-bold tracking-[0.14em] text-mint-dark uppercase">Unverbindlich anfragen</p>
-            <h2 class="mt-2.5 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-              Bereit für mehr Sichtbarkeit?
-            </h2>
-            <p class="mt-4 text-sm leading-relaxed text-grey sm:text-base">
-              Schreib uns kurz dein Anliegen. Wir melden uns innerhalb von 24 Stunden für ein unverbindliches
-              15-Minuten-Gespräch.
-            </p>
-          </div>
-
-          <div class="mt-8 space-y-3 border-t border-black/8 pt-6 text-sm">
-            <p class="font-bold text-ink">Oder direkt erreichen:</p>
-            <a
-              href={SITE.phoneHref}
-              class="flex items-center gap-3 font-semibold text-grey transition-colors hover:text-mint-dark"
-            >
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-mint-soft text-mint-dark" aria-hidden="true">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-              </span>
-              <span>{SITE.phoneDisplay}</span>
-            </a>
-            <a
-              href={`mailto:${SITE.email}`}
-              class="flex items-center gap-3 font-semibold text-grey transition-colors hover:text-mint-dark"
-            >
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-mint-soft text-mint-dark" aria-hidden="true">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-              </span>
-              <span>{SITE.email}</span>
-            </a>
-            <a
-              href={SITE.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center gap-3 font-semibold text-grey transition-colors hover:text-mint-dark"
-            >
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-mint-soft text-mint-dark" aria-hidden="true">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                </svg>
-              </span>
-              <span>Per WhatsApp schreiben</span>
-            </a>
-          </div>
-        </div>
-
-        <form
-          action="https://api.web3forms.com/submit"
-          method="POST"
-          class="space-y-5 lg:col-span-7"
-        >
-          <!-- Web3Forms Access Key hier eintragen (https://web3forms.com) -->
-          <input type="hidden" name="access_key" value="DEIN_WEB3FORMS_ACCESS_KEY" />
-          <input type="hidden" name="subject" value="Neue Website-Anfrage über simplysichtbar.at" />
-          <input type="hidden" name="from_name" value="simplysichtbar.at Kontaktformular" />
-          <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off" />
-
-          <div>
-            <label for="contact-name" class="mb-1.5 block text-sm font-semibold text-ink">
+            <label for="contact-name" class="mb-1.5 block text-xs font-bold tracking-wide text-ink uppercase">
               Name / Betrieb <span class="text-mint-dark">*</span>
             </label>
             <input
@@ -415,12 +440,12 @@ const steps = [
               required
               autocomplete="organization"
               placeholder="z. B. Max Mustermann – Elektro Mustermann"
-              class="w-full rounded-xl border border-black/15 bg-surface/60 px-4 py-3 text-sm text-ink placeholder:text-grey/60 transition-colors focus:border-mint-dark focus:bg-white focus:outline-none focus:ring-2 focus:ring-mint/40"
+              class="w-full rounded-lg border border-black/15 bg-surface/60 px-4 py-3 text-sm text-ink placeholder:text-grey/60 transition-colors focus:border-mint focus:bg-white focus:outline-none focus:ring-2 focus:ring-mint/40"
             />
           </div>
 
           <div>
-            <label for="contact-channel" class="mb-1.5 block text-sm font-semibold text-ink">
+            <label for="contact-channel" class="mb-1.5 block text-xs font-bold tracking-wide text-ink uppercase">
               E-Mail oder Telefonnummer <span class="text-mint-dark">*</span>
             </label>
             <input
@@ -428,36 +453,106 @@ const steps = [
               name="contact"
               type="text"
               required
-              placeholder="z. B. office@meinbetrieb.at oder +43 664 ..."
-              class="w-full rounded-xl border border-black/15 bg-surface/60 px-4 py-3 text-sm text-ink placeholder:text-grey/60 transition-colors focus:border-mint-dark focus:bg-white focus:outline-none focus:ring-2 focus:ring-mint/40"
+              placeholder="office@meinbetrieb.at oder +43 664 ..."
+              class="w-full rounded-lg border border-black/15 bg-surface/60 px-4 py-3 text-sm text-ink placeholder:text-grey/60 transition-colors focus:border-mint focus:bg-white focus:outline-none focus:ring-2 focus:ring-mint/40"
             />
           </div>
+        </div>
 
-          <div>
-            <label for="contact-message" class="mb-1.5 block text-sm font-semibold text-ink">
-              Kurze Nachricht <span class="font-normal text-grey">(optional)</span>
-            </label>
-            <textarea
-              id="contact-message"
-              name="message"
-              rows="4"
-              placeholder="Erzähl uns kurz, was dein Betrieb macht oder wann wir dich am besten erreichen."
-              class="w-full resize-y rounded-xl border border-black/15 bg-surface/60 px-4 py-3 text-sm text-ink placeholder:text-grey/60 transition-colors focus:border-mint-dark focus:bg-white focus:outline-none focus:ring-2 focus:ring-mint/40"
-            ></textarea>
-          </div>
+        <div>
+          <label for="contact-message" class="mb-1.5 block text-xs font-bold tracking-wide text-ink uppercase">
+            Kurze Nachricht <span class="font-normal text-grey normal-case">(optional)</span>
+          </label>
+          <textarea
+            id="contact-message"
+            name="message"
+            rows="3"
+            placeholder="Erzähl uns kurz, was dein Betrieb macht oder wann wir dich am besten erreichen."
+            class="w-full resize-y rounded-lg border border-black/15 bg-surface/60 px-4 py-3 text-sm text-ink placeholder:text-grey/60 transition-colors focus:border-mint focus:bg-white focus:outline-none focus:ring-2 focus:ring-mint/40"
+          ></textarea>
+        </div>
 
+        <div class="pt-1 text-center">
           <button
             type="submit"
-            class="inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-mint px-7 py-4 text-base font-bold text-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-hover hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2"
+            class="inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-mint px-8 py-3.5 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-hover hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2 sm:w-auto sm:text-base"
           >
             Unverbindlich anfragen
           </button>
+        </div>
 
-          <p class="text-xs leading-relaxed text-grey">
-            Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Angaben zur Bearbeitung deiner Anfrage gemäß
-            unserer <a href="/datenschutz" class="font-semibold text-mint-dark underline underline-offset-2 hover:text-ink">Datenschutzerklärung</a> einverstanden.
-          </p>
-        </form>
+        <p class="text-center text-xs text-grey">
+          Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Angaben gemäß unserer{' '}
+          <a href="/datenschutz" class="font-semibold text-mint-dark underline underline-offset-2 hover:text-ink">
+            Datenschutzerklärung
+          </a>{' '}
+          einverstanden.
+        </p>
+      </form>
+
+      <!-- Trust-Leiste im Mint-Banner wie im Original -->
+      <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-white sm:text-sm">
+        {
+          trustItems.map((item) => (
+            <li class="flex items-center gap-1.5">
+              <span class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-white/80 text-[10px]" aria-hidden="true">✓</span>
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- SEKTION 5: FAQ (Original flaches Akkordeon auf Weiß mit dünnen Mint-Trennlinien + Telefon/Mail darunter) -->
+  <section id="faq" class="bg-white py-16 sm:py-22">
+    <div class="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
+      <h2 class="text-center text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">FAQ</h2>
+
+      <div class="mt-10 border-t border-mint/70">
+        {
+          FAQ_ITEMS.map((item, idx) => (
+            <details class="faq-item group border-b border-mint/70" open={idx === 0}>
+              <summary class="flex cursor-pointer items-center justify-between gap-4 py-4.5 text-left text-sm font-bold text-ink transition-colors hover:text-mint-dark sm:text-base">
+                <span>{item.question}</span>
+                <span
+                  class="faq-chevron inline-flex h-6 w-6 shrink-0 items-center justify-center text-grey transition-transform duration-200 group-hover:text-mint-dark"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="pb-5 text-sm leading-relaxed text-grey">
+                <p>{item.answer}</p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+
+      <!-- Direkte Kontaktzeile wie im Original über dem Footer -->
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium text-grey">
+        <a href={SITE.phoneHref} class="inline-flex items-center gap-2 transition-colors hover:text-mint-dark">
+          <svg class="h-4 w-4 text-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span>{SITE.phoneDisplay}</span>
+        </a>
+        <a href={`mailto:${SITE.email}`} class="inline-flex items-center gap-2 transition-colors hover:text-mint-dark">
+          <svg class="h-4 w-4 text-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+          <span>{SITE.email}</span>
+        </a>
+        <a href={SITE.whatsappHref} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 transition-colors hover:text-mint-dark">
+          <svg class="h-4 w-4 text-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+          </svg>
+          <span>WhatsApp</span>
+        </a>
       </div>
     </div>
   </section>

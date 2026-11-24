@@ -17,7 +17,7 @@
   - DSGVO-konforme Umsetzung ohne unnötige Cookie-Banner
   - Fertigstellung in 5 Werktagen nach Materialeingang
   - 100 % Eigentum an Design, Texten und Quellcode
-- **High-Speed-Hosting & Technik:** **7,50 € / Monat** (monatlich kündbar, kein Wartungsvertrag)
+- **High-Speed-Hosting & Technik:** **7,50 € / Monat** (jährliche Abrechnung, Mindestlaufzeit 12 Monate, kein Wartungsvertrag)
   - Schnelle Server in Europa inkl. SSL-Zertifikat
   - Anbindung der eigenen Wunsch-Domain
   - 99,9 % Erreichbarkeit ohne Plugin-Updates oder Datenbank-Sicherheitslücken

@@ -410,15 +410,17 @@ const hostingPoints = [
       </div>
 
       <form
-        action="https://api.web3forms.com/submit"
+        id="contact-form"
+        action="/send.php"
         method="POST"
         class="mx-auto mt-9 max-w-2xl space-y-4 rounded-2xl bg-white p-6 shadow-lg sm:p-8"
       >
-        <!-- Web3Forms Access Key hier eintragen (https://web3forms.com) -->
-        <input type="hidden" name="access_key" value="DEIN_WEB3FORMS_ACCESS_KEY" />
-        <input type="hidden" name="subject" value="Neue Website-Anfrage über simplysichtbar.at" />
-        <input type="hidden" name="from_name" value="simplysichtbar.at Kontaktformular" />
-        <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off" />
+        <!-- Unsichtbarer Spam-Schutz (Honeypot + Zeitstempel) -->
+        <div class="sr-only" aria-hidden="true">
+          <label for="contact-website">Website (bitte leer lassen)</label>
+          <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <input id="contact-ts" type="hidden" name="form_ts" value="" />
 
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
@@ -430,6 +432,7 @@ const hostingPoints = [
               name="name"
               type="text"
               required
+              maxlength="160"
               autocomplete="organization"
               placeholder="z. B. Max Mustermann – Elektro Mustermann"
               class="w-full rounded-lg border border-black/15 bg-surface/60 px-4 py-3 text-sm text-ink placeholder:text-grey/60 transition-colors focus:border-mint focus:bg-white focus:outline-none focus:ring-2 focus:ring-mint/40"
@@ -445,6 +448,7 @@ const hostingPoints = [
               name="contact"
               type="text"
               required
+              maxlength="160"
               placeholder="office@meinbetrieb.at oder +43 664 ..."
               class="w-full rounded-lg border border-black/15 bg-surface/60 px-4 py-3 text-sm text-ink placeholder:text-grey/60 transition-colors focus:border-mint focus:bg-white focus:outline-none focus:ring-2 focus:ring-mint/40"
             />
@@ -459,15 +463,19 @@ const hostingPoints = [
             id="contact-message"
             name="message"
             rows="3"
+            maxlength="4000"
             placeholder="Erzähl uns kurz, was dein Betrieb macht oder wann wir dich am besten erreichen."
             class="w-full resize-y rounded-lg border border-black/15 bg-surface/60 px-4 py-3 text-sm text-ink placeholder:text-grey/60 transition-colors focus:border-mint focus:bg-white focus:outline-none focus:ring-2 focus:ring-mint/40"
           ></textarea>
         </div>
 
+        <div id="contact-status" role="status" aria-live="polite" class="hidden rounded-xl px-4 py-3 text-center text-sm font-semibold"></div>
+
         <div class="pt-1 text-center">
           <button
+            id="contact-submit"
             type="submit"
-            class="inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-mint px-8 py-3.5 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-hover hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2 sm:w-auto sm:text-base"
+            class="inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-mint px-8 py-3.5 text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-hover hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-dark focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:text-base"
           >
             Unverbindlich anfragen
           </button>
@@ -481,6 +489,63 @@ const hostingPoints = [
           einverstanden.
         </p>
       </form>
+
+      <script>
+        const form = document.getElementById('contact-form') as HTMLFormElement | null;
+        const tsInput = document.getElementById('contact-ts') as HTMLInputElement | null;
+        const statusEl = document.getElementById('contact-status');
+        const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+
+        if (tsInput) {
+          tsInput.value = String(Math.floor(Date.now() / 1000));
+        }
+
+        const showStatus = (ok: boolean, text: string) => {
+          if (!statusEl) return;
+          statusEl.textContent = text;
+          statusEl.className = ok
+            ? 'rounded-xl border border-mint-border bg-mint-soft px-4 py-3 text-center text-sm font-semibold text-mint-dark'
+            : 'rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-center text-sm font-semibold text-red-700';
+        };
+
+        // Fallback-Status nach Redirect ohne JS
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('sent') === '1') {
+          showStatus(true, 'Vielen Dank! Deine Anfrage ist bei uns eingegangen – wir melden uns innerhalb von 24 Stunden.');
+        } else if (params.get('error') === '1') {
+          showStatus(false, 'Beim Senden ist ein Fehler aufgetreten. Bitte schreib uns direkt an hallo@simplysichtbar.at.');
+        }
+
+        if (form && submitBtn) {
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            const originalLabel = submitBtn.textContent;
+            submitBtn.textContent = 'Wird gesendet …';
+
+            try {
+              const res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { Accept: 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+              });
+              const data = await res.json();
+              if (res.ok && data.ok) {
+                showStatus(true, data.message || 'Vielen Dank! Wir melden uns innerhalb von 24 Stunden.');
+                form.reset();
+                if (tsInput) tsInput.value = String(Math.floor(Date.now() / 1000));
+              } else {
+                showStatus(false, data.message || 'Bitte prüfe deine Eingaben und versuche es erneut.');
+              }
+            } catch {
+              showStatus(false, 'Verbindungsfehler. Bitte schreib uns direkt an hallo@simplysichtbar.at oder ruf uns an.');
+            } finally {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalLabel;
+            }
+          });
+        }
+      </script>
 
       <!-- Trust-Leiste im Mint-Banner wie im Original -->
       <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-white sm:text-sm">

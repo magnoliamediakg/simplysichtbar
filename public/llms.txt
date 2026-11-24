@@ -12,7 +12,7 @@
   - Individuelles, modernes Design für Smartphone & Desktop
   - Bis zu 5 Unterseiten (z. B. Start, Leistungen, Über uns, Kontakt, Impressum/Datenschutz)
   - Lokales SEO-Fundament (optimierte Texte, saubere Überschriften-Struktur, 99–100 Google-Speed)
-  - KI-Optimierung (GEO) mit strukturierten Schema.org-Daten (`LocalBusiness` & `FAQPage`) für ChatGPT, Google Gemini und Perplexity
+  - KI-Optimierung (GEO) mit strukturierten Schema.org-Daten für ChatGPT, Claude und Gemini
   - Kontaktformular sowie direkte Anruf- und WhatsApp-Buttons
   - DSGVO-konforme Umsetzung ohne unnötige Cookie-Banner
   - Fertigstellung in 5 Werktagen nach Materialeingang
@@ -21,7 +21,7 @@
   - Schnelle Server in Europa inkl. SSL-Zertifikat
   - Anbindung der eigenen Wunsch-Domain
   - 99,9 % Erreichbarkeit ohne Plugin-Updates oder Datenbank-Sicherheitslücken
-- **Spätere Änderungen:** Unkompliziert auf Zuruf per E-Mail oder WhatsApp ab 25 € nach Aufwand – kein laufendes Abo.
+- **Spätere Änderungen:** Unkompliziert auf Zuruf per E-Mail oder WhatsApp nach Aufwand – kein laufendes Abo.
 
 ## Kernleistungen
 

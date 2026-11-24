@@ -47,7 +47,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: 'Was ist, wenn ich später Öffnungszeiten, Preise oder Fotos ändern möchte?',
     answer:
-      'Schick uns einfach eine kurze E-Mail oder WhatsApp-Nachricht. Kleine Änderungen setzen wir meist innerhalb von 24 Stunden um und rechnen fair nach tatsächlichem Aufwand ab (ab 25 €) – ganz ohne laufenden Vertrag.',
+      'Schick uns einfach eine kurze E-Mail oder WhatsApp-Nachricht. Kleine Änderungen setzen wir meist innerhalb von 24 Stunden um und rechnen fair nach tatsächlichem Aufwand ab – ganz ohne laufenden Vertrag.',
   },
   {
     question: 'Gehört die Website wirklich mir?',
@@ -55,8 +55,8 @@ export const FAQ_ITEMS: FaqItem[] = [
       'Ja, zu 100 %. Du hast volle Rechte an Design, Texten und Quellcode. Wenn du irgendwann wechseln möchtest, kannst du deine komplette Website jederzeit mitnehmen.',
   },
   {
-    question: 'Ich habe noch keine Texte oder professionelle Fotos – geht das trotzdem?',
+    question: 'Ich habe noch keine Texte oder Fotos – geht das trotzdem?',
     answer:
-      'Ja! Wir helfen dir bei der Texterstellung, damit deine Leistungen klar und verkaufsstark auf den Punkt gebracht werden. Für den Start reichen oft schon gute Smartphone-Fotos deines Betriebs.',
+      'Ja! Wir helfen dir bei der Texterstellung, damit deine Leistungen klar und verkaufsstark auf den Punkt gebracht werden. Und falls du noch keine passenden Bilder hast, vermitteln wir dir gerne einen professionellen Fotografen aus unserem Netzwerk.',
   },
 ];

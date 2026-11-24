@@ -160,7 +160,7 @@ const hostingPoints = [
           alt="Beispiel einer mobilen Website von simplysichtbar – Getränke Wieland"
           width="420"
           height="560"
-          class="w-64 drop-shadow-xl sm:w-72 lg:w-80"
+          class="w-64 sm:w-72 lg:w-80"
           loading="eager"
           decoding="async"
         />
@@ -168,65 +168,60 @@ const hostingPoints = [
     </div>
   </section>
 
-  <!-- SEKTION 2: DIE PAIN POINTS (Editorial-Layout: links Überschrift, rechts 3 offene Zeilen mit Trennlinien) -->
-  <section id="probleme" class="bg-white py-16 sm:py-24">
+  <!-- SEKTION 2: DIE PAIN POINTS (Schlichte Original-Karten ohne Innen-Boxen + präsente Mockups darunter) -->
+  <section id="probleme" class="bg-white py-16 sm:py-22">
     <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
-        <!-- Linke Spalte: Headline & Einleitung -->
-        <div class="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
-          <h2 class="text-2xl font-extrabold leading-tight tracking-tight text-ink sm:text-3xl lg:text-[2.1rem]">
-            Warum viele lokale Websites heute <span class="textmarker">kaum noch Kunden</span> bringen
-          </h2>
-          <p class="mt-4 text-sm leading-relaxed text-grey sm:text-base">
-            Eine hübsche digitale Visitenkarte reicht heute nicht mehr. Wenn deine Seite technisch veraltet ist,
-            verlierst du jeden Tag Anfragen an die Konkurrenz:
-          </p>
-        </div>
-
-        <!-- Rechte Spalte: 3 offene Punkte mit feinen Trennlinien -->
-        <div class="divide-y divide-black/10 border-t border-b border-black/10 lg:col-span-7">
-          {
-            painPoints.map((item, idx) => (
-              <article class="py-7 first:pt-6 last:pb-6 sm:py-8">
-                <div class="flex items-baseline gap-4">
-                  <span class="shrink-0 text-sm font-bold tracking-wider text-mint-dark">
-                    0{idx + 1}
-                  </span>
-                  <div class="space-y-3">
-                    <h3 class="text-lg font-bold leading-snug text-ink sm:text-xl">
-                      {item.title}
-                    </h3>
-                    <p class="text-sm leading-relaxed text-grey sm:text-[0.95rem]">
-                      {item.problem}
-                    </p>
-                    <p class="border-l-2 border-mint pl-4 text-sm leading-relaxed font-medium text-ink sm:text-[0.95rem]">
-                      {item.solution}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            ))
-          }
-        </div>
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+          Warum viele lokale Websites heute kaum noch Kunden bringen
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-grey sm:text-base">
+          Eine hübsche digitale Visitenkarte reicht heute nicht mehr. Wenn deine Seite technisch veraltet ist, verlierst
+          du jeden Tag Anfragen an die Konkurrenz:
+        </p>
       </div>
 
-      <!-- Beide Referenz-Mockups zentriert darunter (wie im Original) -->
-      <div class="mt-16 flex flex-wrap items-center justify-center gap-8 sm:gap-14">
+      <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        {
+          painPoints.map((card) => (
+            <article class="flex flex-col rounded-xl border border-black/5 bg-white p-7 text-center shadow-[0_6px_28px_rgba(0,0,0,0.06)]">
+              <div class="mx-auto mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-mint/70 text-mint-dark" aria-hidden="true">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+
+              <h3 class="text-lg font-bold leading-snug text-ink">{card.title}</h3>
+
+              <p class="mt-4 text-sm leading-relaxed text-grey">
+                {card.problem}
+              </p>
+
+              <p class="mt-3 text-sm leading-relaxed font-semibold text-ink">
+                {card.solution}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Beide Referenz-Mockups groß & präsent darunter (ohne CSS-Schatten) -->
+      <div class="mt-14 flex flex-wrap items-center justify-center gap-10 sm:gap-16">
         <img
           src="/images/mockup-getraenke-wieland.webp"
           alt="Referenz-Website Getränke Wieland auf dem Smartphone"
-          width="240"
-          height="320"
-          class="w-44 drop-shadow-lg sm:w-52"
+          width="280"
+          height="373"
+          class="w-52 sm:w-64"
           loading="lazy"
           decoding="async"
         />
         <img
           src="/images/mockup-physio-gross-klein.webp"
           alt="Referenz-Website Physio für Groß und Klein auf dem Smartphone"
-          width="240"
-          height="320"
-          class="w-44 drop-shadow-lg sm:w-52"
+          width="280"
+          height="373"
+          class="w-52 sm:w-64"
           loading="lazy"
           decoding="async"
         />

@@ -157,11 +157,14 @@ const hostingPoints = [
       <div class="relative mx-auto flex max-w-xs justify-center sm:max-w-sm lg:col-span-5 lg:max-w-none">
         <img
           src="/images/mockup-getraenke-wieland.webp"
+          srcset="/images/mockup-getraenke-wieland-sm.webp 400w, /images/mockup-getraenke-wieland.webp 900w"
+          sizes="(max-width: 640px) 256px, (max-width: 1024px) 288px, 320px"
           alt="Beispiel einer mobilen Website von simplysichtbar – Getränke Wieland"
           width="900"
           height="1000"
           class="w-64 sm:w-72 lg:w-80 h-auto aspect-[9/10]"
           loading="eager"
+          fetchpriority="high"
           decoding="async"
         />
       </div>
